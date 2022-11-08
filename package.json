@@ -1,0 +1,32 @@
+{
+  "name": "posenet-3d-animation",
+  "version": "1.0.0",
+  "description": "WebML Marathon Project I - Creating 3D Animation with PoseNet in Tensorflow, Kalidokit, ThreeJS and Mediapipe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordovaputra/posenet-3d-animation.git"
+  },
+  "keywords": [
+    "Machine",
+    "Learning",
+    "WebML",
+    "AI"
+  ],
+  "author": "Cordova Putra Handri Ansyah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cordovaputra/posenet-3d-animation/issues"
+  },
+  "homepage": "https://github.com/cordovaputra/posenet-3d-animation#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
