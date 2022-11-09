@@ -1,5 +1,5 @@
 # posenet-3d-animation
-WebML Marathon Project I - Creating 3D Animation with PoseNet in Tensorflow, Kalidokit, ThreeJS and Mediapipe
+WebML Marathon Project - Creating 3D Animation with PoseNet in Tensorflow, Kalidokit, ThreeJS and Mediapipe
 
 ## How to run and test this project?
 1. Clone this repository with `git clone https://github.com/cordovaputra/posenet-3d-animation.git`
