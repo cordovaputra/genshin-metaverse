@@ -4,7 +4,8 @@
   "description": "WebML Marathon Project I - Creating 3D Animation with PoseNet in Tensorflow, Kalidokit, ThreeJS and Mediapipe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
