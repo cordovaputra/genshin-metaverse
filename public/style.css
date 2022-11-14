@@ -19,6 +19,16 @@ h1 {
 h1:hover {
   color: #13a3f3;
 }
+
+p{
+  text-size: 20px;
+  line-height: 1.5;
+  margin-left:20px;
+  width:90%;
+  text-align:center;
+  overflow:hidden; 
+}
+
 a,
 a:visited,
 a:link {
@@ -39,16 +49,18 @@ a:link:hover {
   bottom: 16px;
   right: 16px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #222;
 }
 video {
   max-width: 400px;
   height: auto;
+  border-radius: 12px;
   transform: scale(-1, 1);
 }
 .preview canvas {
   transform: scale(-1, 1);
+  border-radius: 12px;
 }
 body {
   margin: 0;

@@ -53,17 +53,31 @@ function animate() {
 /*----------------------------------------------------------------------------------------------------------
 B. 3D CHARACTER SETUP (FACIAL ANIMATION)
 In this step, we will prepare the 3D object or character that later will interact with the users
-1. 3D Character Loader with GLTF Model format
+1. 3D Character Loader with GLTF Model format & Other UI assets
 2. Import 3D Character
 3. Configure 3D Character Rotation Animation
 4. Configure 3D Character Position Animation
 5. Configure 3D Character Facial Animation (Eye, Mouth and Pupils)
 */
 
-// 1. 3D Character Loader with GLTF Model format
+// 1. 3D Character Loader with GLTF Model format and UI assets
 const loader = new THREE.GLTFLoader();
+const STATUS = document.getElementById('status')
 loader.crossOrigin = "anonymous";
 
+
+var never = [1,2,3,4,7];
+
+function please () {
+  var more=document.getElementById("more");
+  for (var i = 0; i < never.length; i++) {
+    var butt=document.createElement("button");
+    butt.innerHTML=never[i];
+    more.appendChild(butt);
+  }
+}
+
+please();
 // 2. Import 3D character
 loader.load(
     "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Lisa.vrm?v=1668389588573",
@@ -76,14 +90,11 @@ loader.load(
         currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
       });
     },
-    progress =>
-      console.log(
-        "Loading model...",
-        100.0 * (progress.loaded / progress.total),
-        "%"
-      ),
-    error => console.error(error)
+    progress => STATUS.innerText = 'Loading model...' + 100.0 * (progress.loaded / progress.total) + '%',
+    error => console.error(error),
   );
+
+
 
 // 3. Configure 3D Character Rotation Animation
 const rigRotation = (
