@@ -68,42 +68,55 @@ loader.crossOrigin = "anonymous";
 // Set Character Selection Button
 import {characters} from "./javascript/characters.js"
 
-function CharacterSelectionUIControls () {
-  var characterSelection=document.getElementById("select_character");
-  for (var i = 0; i < characters.length; i++) {
-    var buttons=document.createElement("button");
-    var t = document.createTextNode(characters[i]);
-    buttons.appendChild(t);
-    buttons.onclick = btnClick;
-    characterSelection.appendChild(buttons);
-  }
-}
-function btnClick(characters) {
-  let characterSelection = characters.target.textContent;
-  // do something with it
-  if(characters == "1") {
-    loader.load(
-      "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Lisa.vrm?v=1668389588573",
-      gltf => {
-        THREE.VRMUtils.removeUnnecessaryJoints(gltf.scene);
+// function CharacterSelectionUIControls () {
+//   var characterSelection=document.getElementById("select_character");
+//   for (var i = 0; i < characters.length; i++) {
+//     var buttons=document.createElement("button");
+//     var t = document.createTextNode(characters[i]);
+//     buttons.appendChild(t);
+//     buttons.onclick = btnClick;
+//     characterSelection.appendChild(buttons);
+//   }
+// }
+// function btnClick(characters) {
+//   let characterSelection = characters.target.textContent;
+//   // do something with it
+//   if(characters == "1") {
+//     loader.load(
+//       "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Lisa.vrm?v=1668389588573",
+//       gltf => {
+//         THREE.VRMUtils.removeUnnecessaryJoints(gltf.scene);
     
-        THREE.VRM.from(gltf).then(vrm => {
-          scene.add(vrm.scene);
-          currentVrm = vrm;
-          currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
-        });
-      },
-      progress => STATUS.innerText = 'Loading model...' + 100.0 * (progress.loaded / progress.total) + '%',
-      error => console.error(error),
-    );
-  }
-  if(characterSelection == "2") {
-    console.log("2")
-  }
-  
+//         THREE.VRM.from(gltf).then(vrm => {
+//           scene.add(vrm.scene);
+//           currentVrm = vrm;
+//           currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
+//         });
+//       },
+//       progress => STATUS.innerText = 'Loading model...' + 100.0 * (progress.loaded / progress.total) + '%',
+//       error => console.error(error),
+//     );
+//   }
+//   if(characterSelection == "2") {
+//     console.log("2")
+//   }
+// }
+//CharacterSelectionUIControls();
 
-}
-CharacterSelectionUIControls();
+loader.load(
+  "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Lisa.vrm?v=1668389588573",
+  gltf => {
+    THREE.VRMUtils.removeUnnecessaryJoints(gltf.scene);
+
+    THREE.VRM.from(gltf).then(vrm => {
+      scene.add(vrm.scene);
+      currentVrm = vrm;
+      currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
+    });
+  },
+  progress => STATUS.innerText = 'Loading model...' + 100.0 * (progress.loaded / progress.total) + '%',
+  error => console.error(error),
+);
 
 
 // 3. Configure 3D Character Rotation Animation
