@@ -62,6 +62,26 @@ video {
   transform: scale(-1, 1);
   border-radius: 12px;
 }
+
+.select_character {
+  border: solid var(--primary) 2px;
+  color: var(--primary);
+  fill: var(--primary);
+  background: white;
+  box-shadow: 4px 4px 0 var(--primary);
+  height: 40px;  
+  border-radius: 5px;
+  transition: top 0.2s ease;
+  position: relative;
+  top: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+  margin: 0 4px;
+}
+
 body {
   margin: 0;
 }
@@ -129,8 +149,12 @@ a.current {
   padding: 0;
 }
 
+
+
 @media only screen and (max-width: 600px) {
   video {
       max-width: 160px;
   }
 }
+
+
