@@ -297,8 +297,8 @@ camera.start();
 E. LOAD 3D CHARACTER
 -------------------------------------------------------------------------------------------------------------*/
 
-import {characterURL} from "./javascript/characters.js"
-import {CharacterSelectionUIControls} from "./javascript/characters.js"
+import {characterURL} from "./javascript/module.js"
+import {CharacterSelectionUIControls} from "./javascript/module.js"
 
  export function loadAether(){
   const loaderAether = new THREE.GLTFLoader();

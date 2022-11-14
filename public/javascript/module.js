@@ -1,4 +1,5 @@
 import {loadAether} from "../script.js"
+
 export const characters = [
   "Aether",
   "Zhongli",
