@@ -1,4 +1,4 @@
-import {loadAether} from "../script.js"
+import {loadAether} from "./aether.js"
 
 export const characters = [
   "Aether",
