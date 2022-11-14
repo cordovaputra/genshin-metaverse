@@ -36,7 +36,12 @@ const light = new THREE.DirectionalLight(0xffffff);
 light.position.set(1.0, 1.0, 1.0).normalize();
 scene.add(light);
 
+// 3D Loader
+const loaderAether = new THREE.GLTFLoader();
+loaderAether.crossOrigin = "anonymous";
+
 // Real-Time Animation & Interaction
+const STATUS = document.getElementById('status')
 let currentVrm; 
 const clock = new THREE.Clock();
 
@@ -48,26 +53,10 @@ function animate() {
     renderer.render(scene, orbitCamera);
   }
   animate();
-/*----------------------------------------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------------------------------------
-B. 3D CHARACTER SETUP (FACIAL ANIMATION)
-In this step, we will prepare the 3D object or character that later will interact with the users
-1. 3D Character Loader with GLTF Model format & Other UI assets
-2. Import 3D Character
-3. Configure 3D Character Rotation Animation
-4. Configure 3D Character Position Animation
-5. Configure 3D Character Facial Animation (Eye, Mouth and Pupils)
-*/
-
-// 1. 3D Character Loader with GLTF Model format and UI assets
-const loader = new THREE.GLTFLoader();
-const STATUS = document.getElementById('status')
-loader.crossOrigin = "anonymous";
-
-// Set Character Selection Button
-import {CharacterSelectionUIControls} from "./javascript/characters.js"
-CharacterSelectionUIControls();
+B. DRAW CHARACTER RIG 
+----------------------------------------------------------------------------------------------------------*/
 
 // 3. Configure 3D Character Rotation Animation
 const rigRotation = (
@@ -254,11 +243,11 @@ const animateVRM = (vrm, results) => {
       rigRotation("RightLittleDistal", riggedRightHand.RightLittleDistal);
     }
   };
-/*----------------------------------------------------------------------------------------------------------*/
+
 
 /*----------------------------------------------------------------------------------------------------------
 D. SETUP MEDIAPIPE
-*/
+----------------------------------------------------------------------------------------------------------*/
 let videoElement = document.querySelector(".input_video"),
     guideCanvas = document.querySelector('canvas.guides');
 
@@ -291,45 +280,9 @@ const drawResults = (results) => {
   let canvasCtx = guideCanvas.getContext('2d');
   canvasCtx.save();
   canvasCtx.clearRect(0, 0, guideCanvas.width, guideCanvas.height);
-  // Visualize Face PoseNet Dots and Lines (un-comment to see)
-  // drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS, {
-  //     color: "#000000",
-  //     lineWidth: 4
-  //   });
-  //   drawLandmarks(canvasCtx, results.poseLandmarks, {
-  //     color: "#ff0364",
-  //     lineWidth: 2
-  //   });
-  //   drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_TESSELATION, {
-  //     color: "#C0C0C070",
-  //     lineWidth: 1
-  //   });
-  //   if(results.faceLandmarks && results.faceLandmarks.length === 478){
-  //     //draw pupils
-  //     drawLandmarks(canvasCtx, [results.faceLandmarks[468],results.faceLandmarks[468+5]], {
-  //       color: "#ffe603",
-  //       lineWidth: 2
-  //     });
-  //   }
-  //   drawConnectors(canvasCtx, results.leftHandLandmarks, HAND_CONNECTIONS, {
-  //     color: "#eb1064",
-  //     lineWidth: 5
-  //   });
-  //   drawLandmarks(canvasCtx, results.leftHandLandmarks, {
-  //     color: "#00cff7",
-  //     lineWidth: 2
-  //   });
-  //   drawConnectors(canvasCtx, results.rightHandLandmarks, HAND_CONNECTIONS, {
-  //     color: "#22c3e3",
-  //     lineWidth: 5
-  //   });
-  //   drawLandmarks(canvasCtx, results.rightHandLandmarks, {
-  //     color: "#ff0364",
-  //     lineWidth: 2
-  //   });
+
 }
 
-// Use `Mediapipe` utils to get camera - lower resolution = higher fps
 const camera = new Camera(videoElement, {
   onFrame: async () => {
     await holistic.send({image: videoElement});
@@ -338,3 +291,37 @@ const camera = new Camera(videoElement, {
   height: 480
 });
 camera.start();
+
+
+/*----------------------------------------------------------------------------------------------------------
+E. LOAD 3D CHARACTER
+-------------------------------------------------------------------------------------------------------------*/
+
+import {characterURL} from "./javascript/characters.js"
+import {CharacterSelectionUIControls} from "./javascript/characters.js"
+
+ export function loadAether(){
+  const loaderAether = new THREE.GLTFLoader();
+  loaderAether.crossOrigin = "anonymous";
+  loaderAether.load(
+    characterURL[0],
+    gltf => {
+      THREE.VRMUtils.removeUnnecessaryJoints(gltf.scene);
+  
+      THREE.VRM.from(gltf).then(vrm => {
+        scene.add(vrm.scene);
+        currentVrm = vrm;
+        currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
+      });
+    },
+    progress =>
+      console.log(
+        "Loading model...",
+        100.0 * (progress.loaded / progress.total),
+        "%"
+      ),
+    error => console.error(error)
+  );
+}
+
+CharacterSelectionUIControls();
