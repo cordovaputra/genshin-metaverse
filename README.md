@@ -1,4 +1,4 @@
-# posenet-3d-animation
+# genshin-metaverse
 WebML Marathon Project - Creating 3D Animation with PoseNet in Tensorflow, Kalidokit, ThreeJS and Mediapipe
 
 ## How to run and test this project?
@@ -7,4 +7,4 @@ WebML Marathon Project - Creating 3D Animation with PoseNet in Tensorflow, Kalid
 3. Run locally with `npm start`
 
 ## Live Demo is Available
-Open the URL in `https://bit.ly/vtuberworld`
+Open the URL in `https://genshin-metaverse.vercel.app`
