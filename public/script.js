@@ -80,7 +80,7 @@ function CharacterSelectionUIControls () {
 }
 function btnClick(e) {
   let characterSelection = e.target.textContent;
-  if(characterSelection == "1") {
+  if(characterSelection == "Lisa") {
     loader.load(
       "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Lisa.vrm?v=1668389588573",
       gltf => {
@@ -92,11 +92,11 @@ function btnClick(e) {
           currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
         });
       },
-      progress => STATUS.innerText = 'Loading model...' + 100.0 * (progress.loaded / progress.total) + '%',
+      progress => STATUS.innerText = 'Loading: ' + 100.0 * (progress.loaded / progress.total) + '%',
       error => console.error(error),
     );
   }
-  if(characterSelection == "2") {
+  if(characterSelection == "Test") {
     console.log("2")
   }
 }

@@ -12,12 +12,52 @@ body {
   font-family: 'IBM Plex Mono', monospace;
   -webkit-font-smoothing: antialiased;
   display: flex;
+  position:relative;
   flex-direction: column;
   --primary: #4545CC;
   --secondary: #FFB800;
   --white: #FFFFFF;
   --gold: #FFF500;
 }
+
+  .btn-group button {
+    border: solid var(--primary) 2px;
+    color: var(--primary);
+    fill: var(--primary);
+    background: white;
+    box-shadow: 4px 4px 0 var(--primary);
+    height: 40px;  
+    border-radius: 5px;
+    transition: top 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: bold;
+    float: left; /* Float the buttons side by side */
+    margin:5px;
+  }
+  
+  .btn-group button:not(:last-child) {
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform:scale(1.15,1.15);
+    -webkit-transform:scale(1.15,1.15);
+    -moz-transform:scale(1.15,1.15);
+  }
+
+
 
 * { box-sizing: border-box; }
 
@@ -38,6 +78,7 @@ p{
   width:90%;
   text-align:center;
   overflow:hidden; 
+  background:"#FFFFFF"
 }
 
 a,
@@ -61,10 +102,10 @@ a:link:hover {
   right: 16px;
   overflow: hidden;
   border-radius: 12px;
-  background: #222;
+  background: #FFB800;
 }
 video {
-  max-width: 400px;
+  max-width: 600px;
   height: auto;
   border-radius: 12px;
   transform: scale(-1, 1);
@@ -73,34 +114,6 @@ video {
   transform: scale(-1, 1);
   border-radius: 12px;
 }
-
-button {
-  border: solid var(--primary) 2px;
-  color: var(--primary);
-  fill: var(--primary);
-  background: white;
-  box-shadow: 4px 4px 0 var(--primary);
-  height: 40px;  
-  border-radius: 5px;
-  transition: top 0.2s ease;
-  position: relative;
-  top: 0;
-  vertical-align: middle;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-family: inherit;
-  font-weight: bold;
-  margin: 0 4px;
-}
-
-button:hover{
-  background: var(--secondary);
-  color: var(--primary);
-  transform:scale(1.15,1.15);
-  -webkit-transform:scale(1.15,1.15);
-  -moz-transform:scale(1.15,1.15);
-  }
-
 
 canvas {
   display: block;
