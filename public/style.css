@@ -1,21 +1,32 @@
-@font-face {
-  font-family: "Jelly";
-  font-display: block;
-  src: url("https://yeemachine.github.io/kalidoface-live2d-models/Font/kalidoface-jelly.ttf") format("truetype");
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overscroll-behavior-y: contain;
 }
-h1 {
-  font-family: "Jelly";
-  font-size: 32px;
-  color: white;
-  position: absolute;
-  top: -12px;
-  left: 16px;
-  font-weight: normal;
-  -webkit-font-feature-settings: "liga";
-  font-feature-settings: "liga";
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  --primary: #4545CC;
+  --secondary: #FFB800;
+  --white: #FFFFFF;
+  --gold: #FFF500;
 }
+
+* { box-sizing: border-box; }
+
+
+h1 {
+  color: var(--primary);
+  font-size: 60px;
+}
+
 h1:hover {
   color: #13a3f3;
 }
@@ -63,7 +74,7 @@ video {
   border-radius: 12px;
 }
 
-.select_character {
+button {
   border: solid var(--primary) 2px;
   color: var(--primary);
   fill: var(--primary);
@@ -82,9 +93,15 @@ video {
   margin: 0 4px;
 }
 
-body {
-  margin: 0;
-}
+button:hover{
+  background: var(--secondary);
+  color: var(--primary);
+  transform:scale(1.15,1.15);
+  -webkit-transform:scale(1.15,1.15);
+  -moz-transform:scale(1.15,1.15);
+  }
+
+
 canvas {
   display: block;
 }
