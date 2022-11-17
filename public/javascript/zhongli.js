@@ -293,6 +293,25 @@ camera.start();
 E. LOAD 3D CHARACTER
 -------------------------------------------------------------------------------------------------------------*/
 
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 10;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width + "%";
+      }
+    }
+  }
+} 
 
  export function loadZhongli(){
   const loaderZhongli = new THREE.GLTFLoader();
@@ -308,12 +327,7 @@ E. LOAD 3D CHARACTER
         currentVrm.scene.rotation.y = Math.PI; // Rotate model 180deg to face camera
       });
     },
-    progress =>
-      console.log(
-        "Loading model...",
-        100.0 * (progress.loaded / progress.total),
-        "%"
-      ),
+    move(),
     error => console.error(error)
   );
 }

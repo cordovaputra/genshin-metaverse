@@ -3,13 +3,13 @@ import { loadZhongli } from "./zhongli.js";
 // import { removeAether } from "./aether.js";
 export const characters = [
   // "Aether",
-  "Zhongli",
-  "Venti",
-  "Keqing",
-  "Ganyu",
-  "Mona",
-  "Eula",
-  "Amber",
+  "Tap to Start",
+  // "Venti",
+  // "Keqing",
+  // "Ganyu",
+  // "Mona",
+  // "Eula",
+  // "Amber",
 ];
 
 
@@ -26,12 +26,14 @@ export function CharacterSelectionUIControls() {
 
 
 
+
+
 export function btnClick(e) {
   switch (e.target.textContent) {
     // case "Aether":
     //   loadAether();
     //   break;
-    case "Zhongli":
+    case "Tap to Start":
       loadZhongli();
       break;
   }
