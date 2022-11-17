@@ -297,14 +297,12 @@ camera.start();
 E. LOAD 3D CHARACTER
 -------------------------------------------------------------------------------------------------------------*/
 
-import {characterURL} from "./charModule.js"
-import {CharacterSelectionUIControls} from "./charModule.js"
 
  export function loadAether(){
   const loaderAether = new THREE.GLTFLoader();
   loaderAether.crossOrigin = "anonymous";
   loaderAether.load(
-    characterURL[0],
+    "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Aether.vrm?v=1668411478013",
     gltf => {
       THREE.VRMUtils.removeUnnecessaryJoints(gltf.scene);
   
@@ -324,4 +322,3 @@ import {CharacterSelectionUIControls} from "./charModule.js"
   );
 }
 
-CharacterSelectionUIControls();

@@ -1,4 +1,5 @@
-import {loadAether} from "./aether.js"
+import { loadZhongli } from "./zhongli.js";
+import { loadAether } from "./aether.js";
 
 export const characters = [
   "Aether",
@@ -11,10 +12,6 @@ export const characters = [
   "Amber",
 ];
 
-export const characterURL = [
-  "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Aether.vrm?v=1668411478013",
-  "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Zhongli.vrm?v=1668411077094",
-];
 
 export function CharacterSelectionUIControls() {
   var characterSelection = document.getElementById("select_character");
@@ -33,7 +30,13 @@ export function btnClick(e) {
       loadAether();
       break;
     case "Zhongli":
-      console.log("Zhongli")
+      while (e.characters.length)
+{
+    e.remove(e.characters[0]);
+}
+      loadZhongli();
       break;
   }
 }
+
+CharacterSelectionUIControls();

@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 // Listen to HTML
 app.get('', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + './index.html');
 })
 
 app.listen(3000,() => console.log('Server running on port 3000'));
