@@ -159,6 +159,11 @@ body {
   --secondary: #FFB800;
   --white: #FFFFFF;
   --gold: #FFF500;
+
+  background-image: url('https://cdn.glitch.global/40a5d633-e9a4-4101-b267-6437f92dd8d8/1175581(1).jpg?v=1668646301994');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
   .btn-group button {

@@ -31,8 +31,8 @@ orbitControls.target.set(0.0, 1.4, 0.0);
 orbitControls.update();
 
 // Scene & Lighting
-const scene = new THREE.Scene();
-const light = new THREE.DirectionalLight(0xffffff);
+export const scene = new THREE.Scene();
+export const light = new THREE.DirectionalLight(0xffffff);
 light.position.set(1.0, 1.0, 1.0).normalize();
 scene.add(light);
 
@@ -322,3 +322,6 @@ E. LOAD 3D CHARACTER
   );
 }
 
+export function removeAether(){
+  scene.remove(loaderAether);
+}
