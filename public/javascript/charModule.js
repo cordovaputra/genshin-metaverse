@@ -39,5 +39,5 @@ export function btnClick(e) {
   }
 }
 
-loadZhongli();
+// loadZhongli();
 CharacterSelectionUIControls();
