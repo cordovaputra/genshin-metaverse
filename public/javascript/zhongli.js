@@ -317,7 +317,7 @@ function move() {
   const loaderZhongli = new THREE.GLTFLoader();
   loaderZhongli.crossOrigin = "anonymous";
   loaderZhongli.load(
-    "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Venti%20v1.5.vrm?v=1668649248708",
+    "https://cdn.glitch.me/40a5d633-e9a4-4101-b267-6437f92dd8d8/Zhongli.vrm?v=1668411077094",
     gltf => {
       THREE.VRMUtils.removeUnnecessaryJoints(gltf.scene);
   
@@ -331,3 +331,4 @@ function move() {
     error => console.error(error)
   );
 }
+
